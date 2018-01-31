@@ -3,7 +3,9 @@ using UnityEngine;
 
 public enum EWeaponType{
 
-	ASSAULTRIFFLE,
-	SHOTGUN
+	AssaultRifle,
+	ShotGun,
+	GrabGun
+
 
 }

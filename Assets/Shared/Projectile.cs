@@ -41,11 +41,11 @@ public class Projectile : MonoBehaviour {
 
 		desctructable.TakeDamage (damage);
 
-		GameObject prefab = Resources.Load ("PlasmaExplosionEffect")as GameObject;
-		GameObject PlasmaExplosionEffect = Instantiate (prefab) as GameObject;
-		PlasmaExplosionEffect.transform.position = transform.position;
+		//GameObject prefab = Resources.Load ("PlasmaExplosionEffect")as GameObject;
+		//GameObject PlasmaExplosionEffect = Instantiate (prefab) as GameObject;
+		//PlasmaExplosionEffect.transform.position = transform.position;
 
-		Destroy (PlasmaExplosionEffect, 2);
+		//Destroy (PlasmaExplosionEffect, 2);
 		Destroy (gameObject);
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RotatingItem : MonoBehaviour {
+	public float RotSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +12,6 @@ public class RotatingItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (new Vector3 (0,Time.deltaTime * 80,0));
+		transform.Rotate (new Vector3 (0,Time.deltaTime * RotSpeed,0));
 	}
 }

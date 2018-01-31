@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
 	void Awake ()
 	{
 		canFire = true;
-		weaponHolster = transform.FindChild ("Weapons");
+		weaponHolster = transform.Find ("Weapons");
 		weapons = weaponHolster.GetComponentsInChildren<Shooter> ();
 
 		if (weapons.Length > 0)

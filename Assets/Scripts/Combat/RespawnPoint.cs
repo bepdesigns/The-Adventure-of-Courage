@@ -22,6 +22,7 @@ public class RespawnPoint : MonoBehaviour {
 			playerLives--;
 			Instantiate (Lucas, gameObject.transform.position, Quaternion.identity);
 			player = GameObject.FindGameObjectWithTag ("Player");
+			gameObject.GetComponent<HealthScript> ().health = 1f;
 
 		}
 	}

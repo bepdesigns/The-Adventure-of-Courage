@@ -39,11 +39,11 @@ public class PlayerJump : MonoBehaviour {
 		moveVector = transform.TransformDirection (moveVector);
 
 
-		if (Input.GetKeyDown (KeyCode.E) && !controller.isGrounded && canDoubleJump)
+		if (Input.GetKeyDown (KeyCode.F) && !controller.isGrounded && canDoubleJump)
 		{
 			verticalVelocity = jumpforce;
 			canDoubleJump = false;
-			//anime.Play ("DoubleJump");
+			anime.Play ("DoubleJump");
 		}
 
 		if (controller.isGrounded) {
@@ -55,7 +55,7 @@ public class PlayerJump : MonoBehaviour {
 				canDoubleJump = true;
 				isGrounded = false;
 				verticalVelocity = jumpforce;
-				//anime.Play ("Frontflip");
+				anime.Play ("Jump");
 
 			}
 				

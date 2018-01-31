@@ -22,6 +22,7 @@ public class Player: MonoBehaviour
 	[SerializeField]float walkSpeed;
 	[SerializeField]float crouchSpeed;
 	[SerializeField]float sprintSpeed;
+	[SerializeField]float DashSpeed;
 	[SerializeField]MouseInput MouseControl;
 	[SerializeField]AudioController footSteps;
 	[SerializeField]float  minimumMoveTreshold;
@@ -32,6 +33,7 @@ public class Player: MonoBehaviour
 
 	public PlayerAim playerAim;
 
+	public int points = 0;
 
 	Vector3 previousPosition;
 
@@ -128,6 +130,8 @@ public class Player: MonoBehaviour
 			moveSpeed = sprintSpeed;
 		if (playerInput.IsCrouched)
 			moveSpeed = crouchSpeed;
+		if (playerInput.IsDashing)
+			moveSpeed = DashSpeed;
 		
 
 
@@ -241,4 +245,8 @@ public class Player: MonoBehaviour
 			}
 			//Debug.Log (Thirsty);
 		}
+	private void OnGUI()
+	{
+		GUI.Label (new Rect (110, 0, 200, 40), "Coins : " + points);
+	}
 	}

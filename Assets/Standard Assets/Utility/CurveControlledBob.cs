@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UnityStandardAssets.Utility
 {
     [Serializable]
-    public class CurveControlledBob
+    public class bl_CurveControlledBob
     {
         public float HorizontalBobRange = 0.33f;
         public float VerticalBobRange = 0.33f;

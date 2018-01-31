@@ -22,6 +22,8 @@ public class PickupItem : MonoBehaviour {
 	void PickUp (Transform item) {
 
 		OnPickup (item);
+		AudioSource source = GetComponent<AudioSource> ();
+		source.Play ();
 
 	}
 }

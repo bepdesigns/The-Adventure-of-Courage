@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAi : Destructable {
 
+
 	public Transform player;
 	public float playerDistance;
 	public float rotationDamping;
@@ -12,6 +13,7 @@ public class EnemyAi : Destructable {
 	private ParticleSystem muzzleFireParticleSystem;
 	public Transform muzzle;
 	public bool dead= false;
+	public float damagerate;
 
 	[SerializeField]SpawnPoint[] spawnPoints;
 	public Animator animator;
@@ -20,6 +22,9 @@ public class EnemyAi : Destructable {
 
 	// Use this for initialization
 	void Awake(){
+		
+		
+		chase();
 		muzzleFireParticleSystem = muzzle.GetComponentInChildren<ParticleSystem> ();
 		muzzleFireParticleSystem.Stop ();
 	}
@@ -28,6 +33,13 @@ public class EnemyAi : Destructable {
 		EnableRagdoll (false);
 		moveController = GetComponent<MoveController> ();
 
+	}
+
+	void Update()
+	{
+
+
+	
 	}
 
 	void SpawnAtNewSpawnPoint() {
@@ -50,7 +62,7 @@ public class EnemyAi : Destructable {
 			animator.enabled = true;
 			Reset();
 			dead=false;
-		}, 10);
+		}, 30);
 
 
 	}
@@ -86,7 +98,7 @@ public class EnemyAi : Destructable {
 				} 
 				else if (playerDistance < 6f) {
 					Debug.Log("attacking");
-					attack ();
+					attack (); 
 				}
 			}		
 		}
@@ -114,10 +126,10 @@ public class EnemyAi : Destructable {
 		if (Physics.Raycast (rayposition, fwd, out hit))
 		{
 			Debug.DrawLine (rayposition, hit.point);
-			if (hit.collider.gameObject.name == "Player") 
+			if (hit.collider.gameObject.tag == "Player") 
 			{
 				Debug.Log ("hit the player");
-				hit.collider.gameObject.GetComponent<HealthScript>().health -= .05f*Time.deltaTime;
+				hit.collider.gameObject.GetComponent<HealthScript>().health -= damagerate*Time.deltaTime;
 			}
 		}
 

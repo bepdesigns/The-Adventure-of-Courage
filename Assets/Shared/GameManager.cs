@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GameManager {
 
+	public int currentGold;
+
 	public event System.Action<Player> OnLocalPlayerJoined;
 	private GameObject gameObject;
 	public GameObject player2;
@@ -19,12 +21,10 @@ public class GameManager {
 				m_Instance.gameObject.AddComponent<Respawner> ();
 			
 
-			
+	
 			}
 			return m_Instance;
 		}
-	
-	
 	}
 
 	private InputController m_InputController;
@@ -54,21 +54,26 @@ public class GameManager {
 	}
 
 	private Player m_LocalPlayer;
-	public Player LocalPlayer{
-		get{
+	public Player LocalPlayer {
+		get {
 			return m_LocalPlayer;
 		}
-		set{
+		set {
 			m_LocalPlayer = value;
 			if (OnLocalPlayerJoined != null)
 				OnLocalPlayerJoined (m_LocalPlayer);
 		}
 	}
-	void Start(){
+	void Start()
+	{
 
+}
+		
+
+public void AddGold(int goldToAdd)
+{
+		currentGold += goldToAdd;
 }
 
 }
-
-
 

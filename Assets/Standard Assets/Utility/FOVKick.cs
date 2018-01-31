@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UnityStandardAssets.Utility
 {
     [Serializable]
-    public class FOVKick
+    public class bl_FOVKick
     {
         public Camera Camera;                           // optional camera setup, if null the main camera will be used
         [HideInInspector] public float originalFov;     // the original fov
